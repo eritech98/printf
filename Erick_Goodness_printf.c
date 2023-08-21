@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 
 	int flags, width;
 
-	int i;
+	int e;
 
 	int precision, size, buff_ind = 0;
 
@@ -36,14 +36,13 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	for (i = 0; format && format[i] != '\0'; i++)
+	for (e = 0; format && format[e] != '\0'; e++)
 	{
-		if (format[i] != '%')
+		if (format[e] != '%')
 		{
-			buffer[buff_ind++] = format[i];
+			buffer[buff_ind++] = format[e];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[i], 1);*/
 			printed_chars++;
 		}
 
@@ -60,17 +59,17 @@ int _printf(const char *format, ...)
 		{
 			print_buffer(buffer, &buff_ind);
 
-			flags = get_flags(format, &i);
+			flags = get_flags(format, &e);
 
-			width = get_width(format, &i, list);
+			width = get_width(format, &e, list);
 
-			precision = get_precision(format, &i, list);
+			precision = get_precision(format, &e, list);
 
-			size = get_size(format, &i);
+			size = get_size(format, &e);
 
-			++i;
+			++e;
 
-			printed = handle_print(format, &i, list, buffer,
+			printed = handle_print(format, &e, list, buffer,
 
 				flags, width, precision, size);
 
