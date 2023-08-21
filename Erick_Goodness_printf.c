@@ -5,16 +5,16 @@ void print_buffer(char buffer[], int *buff_ind);
 
 
 /**
-* Erick_Goodness_printf - This is our printf function
+* _printf - This is our printf function
 * @format: - formart string
 * Return: will return 0
 */
 
-int Erick_Goodness_printf(const char *format, ...)
+int _printf(const char *format, ...)
 
 /*
 *Declaring and intializing variables we will be using
-*i_ is for iteration
+*i is for iteration
 *pritend ; to store result of handle print
 *printend_chars keeps track of prited chars
 *flags ,width,precision,size ,buff-index -track
@@ -54,7 +54,7 @@ int Erick_Goodness_printf(const char *format, ...)
 
 
 	/*loopr through each char in the formart string*/
-	for (i_ = 0; formart && format[i] != '\0'; i_++)
+	for (i_ = 0; formart && format[i_] != '\0'; i_++)
 	{
 
 	/*If char is not % add to buffer*/
