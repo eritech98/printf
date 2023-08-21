@@ -10,7 +10,7 @@ void print_buffer(char buffer[], int *buff_ind);
 * Return: will return 0
 */
 
-int Erick_Goodness_printf(const char *format, ...)
+int _printf(const char *format, ...)
 
 /*
 *Declaring and intializing variables we will be using
