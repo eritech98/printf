@@ -84,7 +84,7 @@ int _printf(const char *format, ...)
 	width = get_width(formart, &i, list);
 	precision = get_precision(formart, &i, list);
 	size = get_size(formart, &i);
-	++i_;/*move index after '%'*/
+	++i;/*move index after '%'*/
 
 
 	/*call handle_print to process the speciier*/
