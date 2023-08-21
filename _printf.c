@@ -3,14 +3,10 @@
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - this is our Printf function
- * @format:This is the formart string
+ * _printf - Printf function
+ * @format: format.
  * Return: Printed chars.
  */
-
-
-/*this is the valiadric function*/
-
 int _printf(const char *format, ...)
 {
 	int e, printed = 0, printed_chars = 0;
@@ -18,18 +14,10 @@ int _printf(const char *format, ...)
 	va_list list;
 	char buffer[BUFF_SIZE];
 
-
-/*checks IF forMart is NULL*/
 	if (format == NULL)
 		return (-1);
 
 	va_start(list, format);
-
-
-
-
-
-/* va_list with the formart*/
 
 	for (e = 0; format && format[e] != '\0'; e++)
 	{
@@ -38,7 +26,7 @@ int _printf(const char *format, ...)
 			buffer[buff_ind++] = format[e];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[i], 1);*/
+			/* write(1, &format[e], 1);*/
 			printed_chars++;
 		}
 		else
@@ -64,31 +52,14 @@ int _printf(const char *format, ...)
 	return (printed_chars);
 }
 
-
-
-
-
-
-
-
-
-
 /**
- * print_buffer - This will print  the contents of the buffer if it exist
+ * print_buffer - Prints the contents of the buffer if it exists
  * @buffer: Array of chars
- * @buff_ind:This index represents length
+ * @buff_ind: Index at which to add the next char, represents the length.
  */
-
-
 void print_buffer(char buffer[], int *buff_ind)
 {
 	if (*buff_ind > 0)
-
-
-
-
-
-
 		write(1, &buffer[0], *buff_ind);
 
 	*buff_ind = 0;
