@@ -5,7 +5,7 @@ void print_buffer(char buffer[], int *buff_ind);
 
 
 /**
-* Erick_Goodness_printf - This is our printf function
+* _printf - This is our printf function
 * @format: - formart string
 * Return: will return 0
 */
@@ -22,9 +22,9 @@ int Erick_Goodness_printf(const char *format, ...)
 *
 */
 
-	int i_;
+	int i;
 
-	int printend_ = 0;
+	int printend = 0;
 
 	int print_chars = 0;
 
@@ -54,13 +54,13 @@ int Erick_Goodness_printf(const char *format, ...)
 
 
 	/*loopr through each char in the formart string*/
-	for (i_ = 0; formart && format[i_] != '\0'; i_++)
+	for (i = 0; formart && format[i] != '\0'; i++)
 	{
 
 	/*If char is not % add to buffer*/
-	if (formart[i_] != '%')
+	if (formart[i] != '%')
 	{
-		buffer[buff_ind++] = formart[i_];
+		buffer[buff_ind++] = formart[i];
 
 	}
 
@@ -80,24 +80,24 @@ int Erick_Goodness_printf(const char *format, ...)
 	/*printf buffer content and extract formaring opts*/
 
 	print_buffer(buffer, &buff_ind);
-	flags = get_flags(formart, &i_);
-	width = get_width(formart, &i_, list);
-	precision = get_precision(formart, &i_, list);
-	size = get_size(formart, &i_);
+	flags = get_flags(formart, &i);
+	width = get_width(formart, &i, list);
+	precision = get_precision(formart, &i, list);
+	size = get_size(formart, &i);
 	++i_;/*move index after '%'*/
 
 
 	/*call handle_print to process the speciier*/
 
-	printend_ = handle_print(formart, &i_, list, buffer, flags;
+	printend = handle_print(formart, &i, list, buffer, flags;
 	width, precision, size);
 
 	/*check for errors in handle_print*/
-	if (printend_ == -1)
+	if (printend == -1)
 	{
 		return (-1);
 
-	printend_chars += printend_;
+	printend_chars += printend;
 	/*increment pritend_ count*/
 	}
 }
