@@ -5,12 +5,12 @@ void print_buffer(char buffer[], int *buff_ind);
 
 
 /**
-* _printf - This is our printf function
+* Erick_Goodness_printf - This is our printf function
 * @format: - formart string
 * Return: will return 0
 */
 
-int _printf(const char *format, ...)
+int Erick_Goodness_printf(const char *format, ...)
 
 /*
 *Declaring and intializing variables we will be using
