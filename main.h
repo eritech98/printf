@@ -1,125 +1,76 @@
-#ifndef MAIN_H
-#define MAIN_H
-
-
-
-
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 
 #include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
-
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-/* FLAGS RTYU*/
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
-/* SIZESIOU*/
-#define S_LONG 2
-#define S_SHORT 1
+#include <stdlib.h>
 
 /**
- * struct fmt - Struct operATUT
+ * struct print -This is a struct for printer functions
+ * @type_arg:This is the identifier
+ * @f: pointer to a printer functions
  *
- * @fmt: The format.
- * @fn: The function associated.
+ * Description: struct that stores pointers to a
+ * printer functions.
  */
-struct fmt
+
+/*Must include this */
+typedef struct print
 {
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
+	char *type_arg;
+	int (*f)(va_list, char *, unsigned int);
+} print_t;
 
+/*our simple prototypes
+*Our function names will be our file  names
+*/
 
-/**
- * typedef struct fmt fmt_t - Struct o5653p
- *
- * @fmt: The format.
- * @fm_t: The function associated.
- */
-typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
-va_list list, char buffer[], int flags, int width, int precision, int size);
+int print_program(va_list __attribute__((unused)), char *, unsigned int);
+int print_character(va_list arguments, char *erick, unsigned int goodness);
+int print_string(va_list arguments, char *erick, unsigned int goodness);
+int print_integer(va_list arguments, char *erick, unsigned int goodness);
+int print_binary(va_list arguments, char *erick, unsigned int goodness);
+int print_jet(va_list arguments, char *erick, unsigned int goodness);
+int print_octal(va_list arguments, char *erick, unsigned int goodness);
+int print_hexadecimal(va_list arguments, char *erick, unsigned int goodness);
+int print_f1(va_list arguments, char *erick, unsigned int goodness);
+int print_f18(va_list arguments, char *erick, unsigned int goodness);
+int print_add(va_list arguments, char *erick, unsigned int goodness);
+int print_reverse(va_list arguments, char *erick, unsigned int goodness);
+int print_hp(va_list arguments, char *erick, unsigned int goodness);
+int print_erick(va_list arguments, char *erick, unsigned int goodness);
+int print_Goodness(va_list arguments, char *erick, unsigned int goodness);
+int print_samsung(va_list arguments, char *erick, unsigned int goodness);
+int print_vfr(va_list arguments, char *erick, unsigned int goodness);
+int print_va(va_list arguments, char *erick, unsigned int goodness);
+int print_ifr(va_list arguments, char *erick, unsigned int goodness);
+int print_c(va_list arguments, char *erick, unsigned int goodness);
+int print_programming(va_list arguments, char *erick, unsigned int goodness);
+int print_alx(va_list arguments, char *erick, unsigned int goodness);
+int print_rich(va_list arguments, char *erick, unsigned int goodness);
+int print_dev(va_list arguments, char *erick, unsigned int goodness);
+int print_positive(va_list arguments, char *erick, unsigned int goodness);
+int print_good(va_list arguments, char *erick, unsigned int goodness);
+int print_easy(va_list arguments, char *erick, unsigned int goodness);
+int print_hardthings(va_list arguments, char *erick, unsigned int goodness);
 
-/******************CTIONS ******************/
+/*has a func called geta_at_alx which takes two argument and returns a pointer to.int(*).*/
+int (*get_at_alx(const char *s, int index))(va_list, char *, unsigned int);
 
-/* Funtions to print chars and strings */
-int print_char(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int print_buffer(char *buf, unsigned int nbuf);
 
-/* Functions to priiiuyint numbers */
-int print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_binary(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_octal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexadecimal(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-int print_hexa_upper(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+/*The functions will be the name of the files we create*/
 
-int print_hexa(va_list types, char map_to[],
-char buffer[], int flags, char flag_ch, int width, int precision, int size);
-
-/* Function to print non printable characters */
-int print_non_printable(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-/* Funcion tlkuytro print memory address */
-int print_pointer(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-/* Funciotns to handle other specifiers */
-int get_flags(const char *format, int *i);
-int get_width(const char *format, int *i, va_list list);
-int get_precision(const char *format, int *i, va_list list);
-int get_size(const char *format, int *i);
-
-
-
-/*Fujuinction to print string in reverse*/
-int print_reverse(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-/*Functiooiyteon to print a string in rot 13*/
-int print_rot13string(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
-
-/* widfrgtth handler */
-int handle_write_char(char c, char buffer[],
-	int flags, int width, int precision, int size);
-int write_number(int is_positive, int ind, char buffer[],
-	int flags, int width, int precision, int size);
-int write_num(int ind, char bff[], int flags, int width, int precision,
-	int length, char padd, char extra_c);
-int write_pointer(char buffer[], int ind, int length,
-	int width, int flags, char padd, char extra_c, int padd_start);
-
-int write_unsgnd(int is_negative, int ind,
-char buffer[],
-	int flags, int width, int precision, int size);
-
-/****TILS ******************/
-int is_printable(char);
-int append_hexa_code(char, char[], int);
-int is_digit(char);
-
-long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int num, int size);
+int at_alx(const char *s, int index);
+unsigned int we_learnt_to_handle_buff(char *erick, char c, unsigned int goodness);
+int and_print_buff(char *erick, unsigned int nbuf);
+char *also_this_is_for_binary(char *binary, long int int_in, int isneg, int limit);
+char *this_will_fill_oct_array(char *binary, char *oct);
+char *this_will_fill_long_oct_array(char *binary, char *oct);
+char *will_fill_short_oct_array(char *binary, char *oct);
+char *this_will_hex_array(char *bnr, char *hexadecimal, int isupp, int limit);
 
 #endif
